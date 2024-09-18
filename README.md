@@ -14,3 +14,6 @@ Lessons can be created and shared by teachers, which is facilitated by the archi
 
 https://github.com/user-attachments/assets/422d8480-dcc7-496e-a2cd-7ff5b95e404e
 
+## Full project documentation (german)
+
+[BA_Dokumentation.pdf](https://github.com/user-attachments/files/17046974/BA_Dokumentation.pdf)
