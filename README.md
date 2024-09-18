@@ -1,4 +1,4 @@
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/980500643?h=93bc919042" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+https://github.com/user-attachments/assets/a593e56a-a9f1-4aa5-b1d8-903fd5818442
 
 # Jam - an interactive concept for learning the drums
 
@@ -9,3 +9,8 @@ To explore this, this project uses the open-source engine Godot, testing differe
 The design of the project is inspired by rhythm games and uses different visual and sound effects as well as scoring techniques borrowed from this sector to transform the way the students interacts with the lessons.
 
 Lessons can be created and shared by teachers, which is facilitated by the architecture of the game. All charts are generated using MIDI data, which means teachers can use software they already own to create lessons for their students.
+
+## Screencast
+
+https://github.com/user-attachments/assets/422d8480-dcc7-496e-a2cd-7ff5b95e404e
+
