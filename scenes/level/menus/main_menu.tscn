@@ -1,0 +1,220 @@
+[gd_scene load_steps=20 format=3 uid="uid://bm7lyejqtvjyh"]
+
+[ext_resource type="ArrayMesh" uid="uid://cag7uqf34xn1k" path="res://graphics/models/Drum.obj" id="1_63hri"]
+[ext_resource type="Material" uid="uid://hns56pi38n1j" path="res://scenes/menus/drum.tres" id="3_dtc5v"]
+[ext_resource type="Material" uid="uid://bk3003ojba4ac" path="res://graphics/shader/outline.tres" id="3_oerxn"]
+[ext_resource type="Shader" path="res://scenes/level/menus/main_menu.gdshader" id="4_daghu"]
+[ext_resource type="FontFile" uid="uid://i5mvd5fofxxa" path="res://graphics/fonts/ObviouslyDemo-WideSemibold.otf" id="4_iegiw"]
+[ext_resource type="Texture2D" uid="uid://d13gi2jhd04uv" path="res://graphics/ui/box_2.png" id="6_a16wa"]
+[ext_resource type="Texture2D" uid="uid://dpteond8v7av3" path="res://graphics/ui/box_3.png" id="7_5ohr0"]
+[ext_resource type="PackedScene" uid="uid://qei2b01um36e" path="res://scenes/menus/scene_transition/scene_transition.tscn" id="8_3pi5n"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k834g"]
+sky_top_color = Color(0.968627, 0, 0.223529, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+sky_curve = 0.204907
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+ground_curve = 0.0273208
+
+[sub_resource type="Sky" id="Sky_q48gg"]
+sky_material = SubResource("ProceduralSkyMaterial_k834g")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_707pk"]
+background_mode = 2
+sky = SubResource("Sky_q48gg")
+sky_custom_fov = 55.8
+ambient_light_energy = 2.52
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_88afm"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xdel3"]
+viewport_path = NodePath("Camera3D/Node3D2/SubViewport")
+
+[sub_resource type="QuadMesh" id="QuadMesh_psbsx"]
+lightmap_size_hint = Vector2i(12, 12)
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vpv6k"]
+render_priority = 0
+shader = ExtResource("4_daghu")
+shader_parameter/outlineColor = Color(1, 1, 1, 1)
+shader_parameter/depth_threshold = 0.025
+shader_parameter/normal_threshold = 0.378
+shader_parameter/normal_smoothing = 0.355
+shader_parameter/max_thickness = 0.202
+shader_parameter/min_thickness = 0.5
+shader_parameter/max_distance = 75.0
+shader_parameter/min_distance = 2.0
+shader_parameter/grazing_fresnel_power = 5.0
+shader_parameter/grazing_angle_mask_power = 1.0
+shader_parameter/grazing_angle_modulation_factor = 50.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qhah1"]
+viewport_path = NodePath("Node3D/SubViewport")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l5u5v"]
+
+[sub_resource type="Curve3D" id="Curve3D_k38q4"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.10623, 0, 14.6025, 0, 0, 0, 0, 0, 0, 2.26202, -0.155424, 10.3525, 0, 0, 0, 0, 0, 0, -0.640086, -0.000610352, 7.7829, 0, 0, 0, 0, 0, 0, 2.6676, 0, 4.28041, 0, 0, 0, 0, 0, 0, -0.135528, 0, 0.274354),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ym6o"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="MainMenu" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_707pk")
+camera_attributes = SubResource("CameraAttributesPhysical_88afm")
+
+[node name="Drum" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999848, 0.0174524, 0, -0.0174524, 0.999848, 0, 0, 0, 1, -0.18, 0, -0.34)
+mesh = ExtResource("1_63hri")
+surface_material_override/0 = ExtResource("3_dtc5v")
+surface_material_override/1 = ExtResource("3_dtc5v")
+surface_material_override/2 = ExtResource("3_dtc5v")
+surface_material_override/3 = ExtResource("3_dtc5v")
+surface_material_override/4 = ExtResource("3_dtc5v")
+surface_material_override/5 = ExtResource("3_dtc5v")
+surface_material_override/6 = ExtResource("3_dtc5v")
+surface_material_override/7 = ExtResource("3_dtc5v")
+surface_material_override/8 = ExtResource("3_dtc5v")
+surface_material_override/9 = ExtResource("3_dtc5v")
+surface_material_override/10 = ExtResource("3_dtc5v")
+surface_material_override/11 = ExtResource("3_dtc5v")
+surface_material_override/12 = ExtResource("3_dtc5v")
+surface_material_override/13 = ExtResource("3_dtc5v")
+surface_material_override/14 = ExtResource("3_dtc5v")
+surface_material_override/15 = ExtResource("3_dtc5v")
+surface_material_override/16 = ExtResource("3_dtc5v")
+surface_material_override/17 = ExtResource("3_dtc5v")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.975535, 0.0483324, 0.214467, 0, 0.975535, -0.219847, -0.219846, 0.214468, 0.951668, 0, 0.335, 3.96)
+fov = 42.1878
+near = 0.001
+far = 181.87
+
+[node name="Node3D2" type="Node3D" parent="Camera3D"]
+transform = Transform3D(0.21, 0, 0, 0, 0.21, 0, 0, 0, 0.21, -3.295, 1.15, -6.096)
+visible = false
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/Node3D2"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(1195, 267)
+
+[node name="GridContainer" type="GridContainer" parent="Camera3D/Node3D2/SubViewport"]
+offset_left = 87.505
+offset_top = 18.52
+offset_right = 1012.51
+offset_bottom = 164.52
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera3D/Node3D2/SubViewport/GridContainer"]
+position = Vector2(505.495, 124.48)
+scale = Vector2(1.27792, 1.27792)
+texture = ExtResource("7_5ohr0")
+
+[node name="Label" type="Label" parent="Camera3D/Node3D2/SubViewport/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_iegiw")
+theme_override_font_sizes/font_size = 80
+text = "Lesson"
+
+[node name="Sprite3D" type="Sprite3D" parent="Camera3D/Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.342452, -1.44219, -0.453921)
+billboard = 1
+texture = SubResource("ViewportTexture_xdel3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.617452, -0.250626, -0.745613, 0.697882, -0.262791, 0.666259, -0.362923, -0.931733, 0.0126464, -0.640939, 1.92759, -0.218948)
+light_energy = 7.604
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.972833)
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_psbsx")
+surface_material_override/0 = ExtResource("3_oerxn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.09974)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_psbsx")
+skeleton = NodePath("../MeshInstance3D")
+surface_material_override/0 = SubResource("ShaderMaterial_vpv6k")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.21, 0, 0, 0, 0.21, 0, 0, 0, 0.21, -1.21024, 1.27812, 0.065)
+visible = false
+
+[node name="SubViewport" type="SubViewport" parent="Node3D"]
+disable_3d = true
+transparent_bg = true
+size = Vector2i(795, 235)
+
+[node name="GridContainer" type="GridContainer" parent="Node3D/SubViewport"]
+offset_left = 16.955
+offset_top = 18.52
+offset_right = 378.955
+offset_bottom = 65.52
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Node3D/SubViewport/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_iegiw")
+theme_override_font_sizes/font_size = 30
+text = "Stats
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="Node3D/SubViewport/GridContainer"]
+position = Vector2(261, 52)
+texture = ExtResource("6_a16wa")
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.342452, -1.44219, -0.453921)
+billboard = 1
+texture = SubResource("ViewportTexture_qhah1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_l5u5v")
+
+[node name="Node3D3" type="Node3D" parent="."]
+
+[node name="SubViewport" type="SubViewport" parent="Node3D3"]
+
+[node name="SceneTransition" parent="." instance=ExtResource("8_3pi5n")]
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_k38q4")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+material_override = SubResource("StandardMaterial3D_5ym6o")
+transparency = 0.04
+polygon = PackedVector2Array(0, 0, 0.031, 0, 0.04, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 1
+path_interval = 0.01
+path_simplify_angle = 0.0
+path_rotation = 0
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.05
+path_joined = false

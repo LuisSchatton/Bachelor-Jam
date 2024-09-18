@@ -1,0 +1,103 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmasdghlfudd6"]
+
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp/ScoreSheet.gd" id="1_dkgn0"]
+[ext_resource type="FontFile" uid="uid://l25axyh5fk8g" path="res://graphics/TT Hoves Pro Trial Bold.ttf" id="2_n5rwi"]
+[ext_resource type="FontFile" uid="uid://cn7qucpbehlg8" path="res://graphics/TT Hoves Pro Trial Medium.ttf" id="3_jjlto"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ScoreSheet" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 41
+theme_override_constants/v_separation = 30
+columns = 2
+script = ExtResource("1_dkgn0")
+
+[node name="LessonOver" type="Label" parent="MarginContainer/ScoreSheet"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_n5rwi")
+theme_override_font_sizes/font_size = 80
+text = "Lesson Over"
+
+[node name="LabelEmpty" type="Label" parent="MarginContainer/ScoreSheet"]
+layout_mode = 2
+
+[node name="AccuracyLabel" type="Label" parent="MarginContainer/ScoreSheet"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jjlto")
+theme_override_font_sizes/font_size = 60
+text = "⌀ Accuracy:"
+
+[node name="ScoreAccuracy" type="Label" parent="MarginContainer/ScoreSheet"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jjlto")
+theme_override_font_sizes/font_size = 60
+
+[node name="LabelPerfect" type="Label" parent="MarginContainer/ScoreSheet"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jjlto")
+theme_override_font_sizes/font_size = 60
+text = "Perfect:"
+
+[node name="ScorePerfect" type="Label" parent="MarginContainer/ScoreSheet"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jjlto")
+theme_override_font_sizes/font_size = 60
+
+[node name="LabelTooLoud" type="Label" parent="MarginContainer/ScoreSheet"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jjlto")
+theme_override_font_sizes/font_size = 60
+text = "Too loud:"
+
+[node name="ScoreTooLoud" type="Label" parent="MarginContainer/ScoreSheet"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jjlto")
+theme_override_font_sizes/font_size = 60
+
+[node name="LabelTooQuiet" type="Label" parent="MarginContainer/ScoreSheet"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jjlto")
+theme_override_font_sizes/font_size = 60
+text = "Too quiet:"
+
+[node name="ScoreTooQuiet" type="Label" parent="MarginContainer/ScoreSheet"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jjlto")
+theme_override_font_sizes/font_size = 60

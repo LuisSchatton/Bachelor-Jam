@@ -1,0 +1,172 @@
+[gd_scene load_steps=8 format=3 uid="uid://fxgio2lnx443"]
+
+[ext_resource type="ArrayMesh" uid="uid://da8uo2otyl2q6" path="res://scenes/level/prototyping/level_prototyp_5/Drum.obj" id="1_b82fd"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_5/level_prototyp_5.gd" id="1_y8uth"]
+[ext_resource type="Material" uid="uid://cwle1hmlf58qe" path="res://scenes/level/prototyping/level_prototyp_5/drum_tex.tres" id="2_trni0"]
+[ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="6_iolgv"]
+
+[sub_resource type="Curve3D" id="Curve3D_sjn3g"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0180604, -3.43323e-05, -2.49043, 0, 0, -0.8, 0, 0, 0.8, -0.683628, 0.00435638, -0.912846, 0, 0, 0, 0, 0, 0, -0.0180604, -3.43323e-05, 0.521174),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_ffke1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.00898826, 0, 0.00166702, 0, 0, -0.7, 0, 0, 0.7, 0.622286, 3.21865e-05, 1.5769, 0, 0, 0, 0, 0, 0, -0.0211383, 0, 2.99021),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="GDScript" id="GDScript_5qif6"]
+script/source = "extends Node2D
+
+# Variables
+
+@onready var note_links = preload(\"res://scenes/level/prototyping/level_prototyp_5/note_links.tscn\")
+@onready var note_rechts = preload(\"res://scenes/level/prototyping/level_prototyp_5/note_rechts.tscn\")
+
+@onready var pathLinks = $\"../PathLinks\"
+
+var single_stroke_roll := {
+	39: {
+		\"call\": \"links\"
+	},
+	40: {
+		\"call\": \"rechts\",
+	}
+}
+
+var queueLinks = []
+var queueRechts = []
+
+
+var mapSpeed = Global.mapSpeed
+var elapsed_time = 0.0
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	#var center = get_sprite_center(judgementLine)
+	#Startposition = gridContainer.position
+	pass
+	
+# Beat Generation
+	
+func _on_midi_player_midi_event(channel, event):
+	
+	if channel.track_name == \"single_stroke_roll\":
+		
+		var current_note = single_stroke_roll.get(event.note) 
+		
+		if current_note == { \"call\": \"links\" } and event.type == 144:
+			var linksChild = note.instantiate()
+			$\"../PathLinks\".add_child(linksChild)
+			queueLinks.push_back(linksChild)
+		elif current_note == { \"call\": \"rechts\" } and event.type == 144:
+			var rechtsChild = note.instantiate()
+			$\"../PathRechts\".add_child(rechtsChild)
+			queueRechts.push_back(rechtsChild)
+		elif current_note != null:
+			#print(current_note)
+			pass
+		else:
+			print(\"Event note\", event.note, \"not predefined in animation.\")
+			pass
+	else:
+		#print(\"Unknown track name:\", channel.track_name)
+		pass
+		
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	var t
+	
+	elapsed_time += delta
+	t = elapsed_time / mapSpeed
+	t = clamp(t, 0.0, 1.0)  # Ensure mapSpeed stays between 0 and 1
+
+	if $\"../MidiPlayer\".playing == false:
+			$\"../MidiPlayer\".play()
+
+	var num_children = get_child_count()
+
+	if queueLinks.size() != 0:
+		for i in range(queueLinks.size()):
+			var linksNote = queueLinks[i]
+			
+		if queueLinks[0].progress_ratio == 1:
+			var linksNote = queueLinks[0] 
+			$\".\".remove_child(linksNote)
+			queueLinks.pop_front()
+			
+	if queueRechts.size() != 0:
+		for i in range(queueRechts.size()):
+			var rechtsNote = queueRechts[i]
+			
+		if queueRechts[0].progress_ratio == 1:
+			var rechtsNote = queueRechts[0] 
+			$\".\".remove_child(rechtsNote)
+			queueRechts.pop_front()
+			
+# Scoring
+
+func _on_snare_snare_hit(velocity):
+	
+	if queueLinks.size() != 0:
+		var child_node = queueLinks[0]
+		
+		var accuracy = 1 - child_node.t
+		
+		print(accuracy)
+		
+		if accuracy <= 0.3 and accuracy >= 0.4:
+			print(\"early\")
+			$\".\".remove_child(child_node)
+			queueLinks.pop_front()
+		elif accuracy < 0.2:
+			print(\"hit\")
+			$\".\".remove_child(child_node)
+			queueLinks.pop_front()
+		elif accuracy < 0.4:
+			print(\"miss\")
+		
+	else:
+		pass
+
+"
+
+[node name="LevelPrototyp5" type="Node3D"]
+script = ExtResource("1_y8uth")
+
+[node name="Drum" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_trni0")
+mesh = ExtResource("1_b82fd")
+
+[node name="Drum2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.00688)
+material_override = ExtResource("2_trni0")
+mesh = ExtResource("1_b82fd")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.980426, 0.196887, 0, -0.196887, 0.980426, 0, 1.32185, 1.67384)
+
+[node name="PathLinks" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.672434, 0)
+curve = SubResource("Curve3D_sjn3g")
+
+[node name="PathRechts" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.672394, -2.47639)
+curve = SubResource("Curve3D_ffke1")
+
+[node name="Conductor" type="Node2D" parent="."]
+script = SubResource("GDScript_5qif6")
+
+[node name="MidiPlayer" parent="." instance=ExtResource("6_iolgv")]
+file = "res://scenes/level/prototyping/level_prototyp_5/single_stroke_roll_2.mid"
+playing = true
+loop = true
+
+[connection signal="midi_event" from="MidiPlayer" to="Conductor" method="_on_midi_player_midi_event"]

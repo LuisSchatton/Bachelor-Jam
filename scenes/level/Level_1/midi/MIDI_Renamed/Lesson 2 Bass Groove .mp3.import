@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4en5b2a1ry78"
+path="res://.godot/imported/Lesson 2 Bass Groove .mp3-acb19b25fbdf215602f267bf03733525.mp3str"
+
+[deps]
+
+source_file="res://scenes/level/Level_1/midi/MIDI_Renamed/Lesson 2 Bass Groove .mp3"
+dest_files=["res://.godot/imported/Lesson 2 Bass Groove .mp3-acb19b25fbdf215602f267bf03733525.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

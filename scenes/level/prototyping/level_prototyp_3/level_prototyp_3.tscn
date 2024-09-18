@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtnlot7vm0pbm"]
+
+[ext_resource type="Environment" uid="uid://bln316q1vr5fa" path="res://scenes/level/prototyping/level_prototyp_3/materials/environment.tres" id="1_5h4hd"]
+[ext_resource type="PackedScene" uid="uid://cl2nm86acsfjj" path="res://scenes/level/prototyping/level_prototyp_3/drum.tscn" id="2_kxtu5"]
+[ext_resource type="PackedScene" uid="uid://yfcw84x2t8i6" path="res://scenes/level/prototyping/level_prototyp_2/Prototyp_2.tscn" id="2_ooxpx"]
+
+[node name="RootCanvas" type="CanvasLayer"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.462605, 0.189728, 0, 0.379456, 0.92521, -0.5, 0.801255, -0.328619, 0, 0, 0)
+shadow_enabled = true
+
+[node name="LevelPrototyp3" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LevelPrototyp3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.411504, 1.03484, 0.766418)
+omni_range = 3.915
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="LevelPrototyp3"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="LevelPrototyp3/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="LevelPrototyp3/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.967033, 0.254653, 0, -0.254653, 0.967033, 0, 0.784701, 1.51078)
+environment = ExtResource("1_5h4hd")
+
+[node name="Prototyp2" parent="." instance=ExtResource("2_ooxpx")]
+
+[node name="Drum" parent="." instance=ExtResource("2_kxtu5")]
+transform = Transform3D(0.728431, 0, -0.685119, 0, 1, 0, 0.685119, 0, 0.728431, 0.278177, 0, -0.472815)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1922.0
+offset_bottom = 1020.0
+color = Color(0.878431, 0.921569, 0.937255, 1)

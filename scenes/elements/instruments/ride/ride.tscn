@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bymwj110vi6ny"]
+
+[ext_resource type="Script" path="res://scenes/elements/instruments/ride/ride.gd" id="1_rnjol"]
+[ext_resource type="AudioStream" uid="uid://eqsmntoybb43" path="res://scenes/elements/instruments/ride/ride_sound.mp3" id="1_vmu2x"]
+
+[node name="Ride" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_rnjol")
+stream = ExtResource("1_vmu2x")

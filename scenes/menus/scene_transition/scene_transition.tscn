@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://qei2b01um36e"]
+
+[ext_resource type="VideoStream" path="res://scenes/menus/scene_transition/transition_10000-0030.ogv" id="1_augn3"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7apyq"]
+blend_mode = 3
+light_mode = 1
+
+[node name="SceneTransition" type="CanvasLayer"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+material = SubResource("CanvasItemMaterial_7apyq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_augn3")
+autoplay = true

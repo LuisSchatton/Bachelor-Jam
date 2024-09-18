@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cta0njdwwbxy6"]
+
+[ext_resource type="Texture2D" uid="uid://bdmxs8vn6sbv0" path="res://scenes/level/prototyping/level_prototyp_7/Group 566.png" id="1_0bhpg"]
+[ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="3_55v6y"]
+[ext_resource type="PackedScene" uid="uid://cekuqasfi73iu" path="res://scenes/elements/instruments/kick/kick.tscn" id="4_lr4tp"]
+[ext_resource type="PackedScene" uid="uid://coc8xvxoovcjm" path="res://scenes/elements/instruments/snare/snare.tscn" id="5_h24uv"]
+[ext_resource type="PackedScene" uid="uid://xooru71ir1sq" path="res://scenes/elements/instruments/hihat/hihat.tscn" id="6_c0cdp"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_7/conductor_prototyp_7.gd" id="6_er63v"]
+
+[node name="LevelPrototyp7Gui" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="JudgementLine" type="Sprite2D" parent="GridContainer"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_0bhpg")
+
+[node name="Conductor" type="Node2D" parent="."]
+script = ExtResource("6_er63v")
+map_bpm = 60.0
+
+[node name="MidiPlayer" parent="." instance=ExtResource("3_55v6y")]
+file = "res://scenes/level/prototyping/level_prototyp_7/Rockbeat_1.mid"
+loop = true
+
+[node name="Kick" parent="." instance=ExtResource("4_lr4tp")]
+
+[node name="Snare" parent="." instance=ExtResource("5_h24uv")]
+
+[node name="Hihat" parent="." instance=ExtResource("6_c0cdp")]
+
+[connection signal="midi_event" from="MidiPlayer" to="Conductor" method="_on_midi_player_midi_event"]
+[connection signal="kick_hit" from="Kick" to="Conductor" method="_on_kick_kick_hit"]
+[connection signal="snare_hit" from="Snare" to="Conductor" method="_on_snare_snare_hit"]
+[connection signal="hihat_hit" from="Hihat" to="Conductor" method="_on_hihat_hihat_hit"]

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://xooru71ir1sq"]
+
+[ext_resource type="Script" path="res://scenes/elements/instruments/hihat/hihat.gd" id="1_nhdqp"]
+[ext_resource type="AudioStream" uid="uid://crhllqetqo1en" path="res://scenes/elements/instruments/hihat/hihat_closed_sound.mp3" id="2_cms66"]
+
+[node name="Hihat" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_nhdqp")
+stream = ExtResource("2_cms66")

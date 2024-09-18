@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtkn3fb41x00c"]
+
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_2/hi_hat_note.gd" id="1_16pu4"]
+[ext_resource type="Texture2D" uid="uid://dx6ebqklsoayc" path="res://graphics/depricated/HiHatInnen.png" id="2_c6gro"]
+[ext_resource type="Texture2D" uid="uid://b1y6loy57ntuu" path="res://graphics/depricated/hihatAussen.png" id="3_dp1xd"]
+
+[sub_resource type="Animation" id="Animation_8kiqn"]
+resource_name = "PerfectHit"
+
+[sub_resource type="Animation" id="Animation_1pp85"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2i04j"]
+_data = {
+"PerfectHit": SubResource("Animation_8kiqn"),
+"RESET": SubResource("Animation_1pp85")
+}
+
+[node name="HiHatNote" type="Node2D"]
+script = ExtResource("1_16pu4")
+
+[node name="HiHatSprite" type="Sprite2D" parent="."]
+scale = Vector2(1.01786, 1.01786)
+texture = ExtResource("2_c6gro")
+
+[node name="HiHatRingSprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_dp1xd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2i04j")
+}

@@ -1,0 +1,273 @@
+[gd_scene load_steps=27 format=3 uid="uid://cpuv2lk3p03qd"]
+
+[ext_resource type="Shader" uid="uid://d13tdyarf7atq" path="res://graphics/shader/hit_shader.tres" id="1_6rmyk"]
+[ext_resource type="Texture2D" uid="uid://7qy4kf8ho06p" path="res://graphics/vfx/Element 78.png" id="2_77ebe"]
+[ext_resource type="Curve" uid="uid://u65agrplbg0j" path="res://scenes/level/Level_1/curves/hit_alpha_curve.tres" id="3_bahv8"]
+[ext_resource type="Texture2D" uid="uid://u2uxxq6uqqax" path="res://scenes/level/Level_1/curves/hit_scale_curve.tres" id="3_tcnf3"]
+
+[sub_resource type="Animation" id="Animation_y42gp"]
+resource_name = "EearlyEffect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EarlyVFX:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_u66gs"]
+resource_name = "EmptyEffect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EmptyVFX:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_jgqh1"]
+resource_name = "HitEffect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitVFX:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kgwfq"]
+resource_name = "LateEffect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LateVFX:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_i7lek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EmptyVFX:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitVFX:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EarlyVFX:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LateVFX:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6fis"]
+_data = {
+"EarlyEffect": SubResource("Animation_y42gp"),
+"EmptyEffect": SubResource("Animation_u66gs"),
+"HitEffect": SubResource("Animation_jgqh1"),
+"LateEffect": SubResource("Animation_kgwfq"),
+"RESET": SubResource("Animation_i7lek")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hcnai"]
+render_priority = 0
+shader = ExtResource("1_6rmyk")
+shader_parameter/Hit_Texture = ExtResource("2_77ebe")
+
+[sub_resource type="CurveTexture" id="CurveTexture_okjts"]
+curve = ExtResource("3_bahv8")
+
+[sub_resource type="Gradient" id="Gradient_a4hqj"]
+colors = PackedColorArray(1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xnx8t"]
+gradient = SubResource("Gradient_a4hqj")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h7d6d"]
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 1.5
+scale_curve = ExtResource("3_tcnf3")
+color_ramp = SubResource("GradientTexture1D_xnx8t")
+alpha_curve = SubResource("CurveTexture_okjts")
+
+[sub_resource type="QuadMesh" id="QuadMesh_e5wif"]
+
+[sub_resource type="GDScript" id="GDScript_dtma4"]
+script/source = "extends GPUParticles3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+	
+
+"
+
+[sub_resource type="Gradient" id="Gradient_0ae3i"]
+colors = PackedColorArray(1, 0.534379, 0.0127104, 1, 0.956863, 0.85098, 0.486275, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4d12k"]
+gradient = SubResource("Gradient_0ae3i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_np87p"]
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 1.5
+scale_curve = ExtResource("3_tcnf3")
+color_ramp = SubResource("GradientTexture1D_4d12k")
+alpha_curve = ExtResource("3_tcnf3")
+
+[sub_resource type="Gradient" id="Gradient_vrpbl"]
+colors = PackedColorArray(0.198427, 0.659581, 0.861178, 1, 0.802666, 0.869181, 0.901877, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0jqy6"]
+gradient = SubResource("Gradient_vrpbl")
+use_hdr = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cn12d"]
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 1.5
+scale_curve = ExtResource("3_tcnf3")
+color_ramp = SubResource("GradientTexture1D_0jqy6")
+alpha_curve = ExtResource("3_tcnf3")
+
+[sub_resource type="Gradient" id="Gradient_e8pjw"]
+colors = PackedColorArray(0.252028, 0.252028, 0.252028, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aejpc"]
+gradient = SubResource("Gradient_e8pjw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_52j3i"]
+angle_min = -180.0
+angle_max = 180.0
+gravity = Vector3(0, 0, 0)
+scale_min = 1.5
+scale_max = 1.5
+scale_curve = ExtResource("3_tcnf3")
+color_ramp = SubResource("GradientTexture1D_aejpc")
+alpha_curve = ExtResource("3_tcnf3")
+
+[node name="Hit Effect" type="Node3D"]
+
+[node name="HitAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o6fis")
+}
+
+[node name="HitVFX" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 4.50099)
+material_override = SubResource("ShaderMaterial_hcnai")
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_h7d6d")
+draw_pass_1 = SubResource("QuadMesh_e5wif")
+script = SubResource("GDScript_dtma4")
+
+[node name="LateVFX" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 4.50099)
+material_override = SubResource("ShaderMaterial_hcnai")
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_np87p")
+draw_pass_1 = SubResource("QuadMesh_e5wif")
+script = SubResource("GDScript_dtma4")
+
+[node name="EarlyVFX" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 4.50099)
+material_override = SubResource("ShaderMaterial_hcnai")
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_cn12d")
+draw_pass_1 = SubResource("QuadMesh_e5wif")
+script = SubResource("GDScript_dtma4")
+
+[node name="EmptyVFX" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 4.50099)
+material_override = SubResource("ShaderMaterial_hcnai")
+emitting = false
+amount = 1
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_52j3i")
+draw_pass_1 = SubResource("QuadMesh_e5wif")
+script = SubResource("GDScript_dtma4")

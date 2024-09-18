@@ -1,0 +1,226 @@
+[gd_scene load_steps=22 format=3 uid="uid://7f4xdnx5g7l5"]
+
+[ext_resource type="Script" path="res://scenes/elements/judgement_line/hit_zone_unten.gd" id="1_bttv7"]
+[ext_resource type="Texture2D" uid="uid://be5fou8xngqx2" path="res://graphics/ui/Notes/Hit_Zone_Oben.png" id="2_30bwi"]
+[ext_resource type="Shader" uid="uid://d13tdyarf7atq" path="res://graphics/shader/hit_shader.tres" id="3_bfded"]
+[ext_resource type="Texture2D" uid="uid://lrf0aqd2kun3" path="res://graphics/vfx/Note_Hit_Effekt_big.png" id="4_v0ebu"]
+
+[sub_resource type="Animation" id="Animation_57vnw"]
+resource_name = "Early_Animation"
+length = 0.01
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.14),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.839216, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cfse0"]
+resource_name = "Empty_Animation"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.607843, 0.607843, 0.607843, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_j0ulv"]
+resource_name = "Hit_Animation"
+length = 0.01
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rpa8l"]
+resource_name = "Late_Animation"
+length = 0.01
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_4n1jp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles3D:process_material:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles3D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cyn07"]
+_data = {
+"Early_Animation": SubResource("Animation_57vnw"),
+"Empty_Animation": SubResource("Animation_cfse0"),
+"Hit_Animation": SubResource("Animation_j0ulv"),
+"Late_Animation": SubResource("Animation_rpa8l"),
+"RESET": SubResource("Animation_4n1jp")
+}
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_www0t"]
+size = Vector2(0.655, 1.025)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8pju"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = ExtResource("2_30bwi")
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 1.19
+emission_operator = 1
+emission_texture = ExtResource("2_30bwi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1gch"]
+render_priority = 0
+shader = ExtResource("3_bfded")
+shader_parameter/Hit_Texture = ExtResource("4_v0ebu")
+
+[sub_resource type="Curve" id="Curve_3uhlb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.260771, 1), 0.0, 0.0, 0, 0, Vector2(0.684807, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_vsfwu"]
+curve = SubResource("Curve_3uhlb")
+
+[sub_resource type="Curve" id="Curve_2gtxj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_3ftfq"]
+curve = SubResource("Curve_2gtxj")
+
+[sub_resource type="Curve" id="Curve_rgucs"]
+_data = [Vector2(0, 0.349444), 0.0, 0.0, 0, 0, Vector2(0.639456, 0.694183), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_20wlv"]
+curve = SubResource("Curve_rgucs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m5imm"]
+resource_local_to_scene = true
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_20wlv")
+alpha_curve = SubResource("CurveTexture_vsfwu")
+emission_curve = SubResource("CurveTexture_3ftfq")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pavfy"]
+
+[node name="HitZoneOben" type="Node3D"]
+script = ExtResource("1_bttv7")
+
+[node name="HitAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cyn07")
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.435, 0, 0, 0, 0.435, 0, 0, 0, 0.435, 0, 0, 0)
+mesh = SubResource("PlaneMesh_www0t")
+surface_material_override/0 = SubResource("StandardMaterial3D_t8pju")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_q1gch")
+amount = 1
+lifetime = 0.35
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_m5imm")
+draw_pass_1 = SubResource("PlaneMesh_pavfy")

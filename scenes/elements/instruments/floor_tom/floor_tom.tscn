@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwqriu0a4royy"]
+
+[ext_resource type="Script" path="res://scenes/elements/instruments/floor_tom/floor_tom.gd" id="1_gu8nh"]
+[ext_resource type="AudioStream" uid="uid://xunv00v584g4" path="res://scenes/elements/instruments/floor_tom/floor_sound.mp3" id="2_mtylq"]
+
+[node name="LowTom" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gu8nh")
+stream = ExtResource("2_mtylq")

@@ -1,0 +1,382 @@
+[gd_scene load_steps=30 format=3 uid="uid://buth24hagt2hq"]
+
+[ext_resource type="Material" uid="uid://ctnviqpl38ss8" path="res://scenes/level/Level/Top_Lane.tres" id="1_3i45h"]
+[ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="2_h7be3"]
+[ext_resource type="Script" path="res://scenes/level/Level/conductor_level_Abgabe.gd" id="3_7cs55"]
+[ext_resource type="FontFile" uid="uid://i5mvd5fofxxa" path="res://graphics/fonts/ObviouslyDemo-WideSemibold.otf" id="4_mxfs0"]
+[ext_resource type="PackedScene" uid="uid://coc8xvxoovcjm" path="res://scenes/elements/instruments/snare/snare.tscn" id="6_otvak"]
+[ext_resource type="PackedScene" uid="uid://bymwj110vi6ny" path="res://scenes/elements/instruments/ride/ride.tscn" id="7_cm3p3"]
+[ext_resource type="PackedScene" uid="uid://cg727fm2j5p8p" path="res://scenes/elements/instruments/mid_tom/mid_tom.tscn" id="8_7u1at"]
+[ext_resource type="PackedScene" uid="uid://dwqriu0a4royy" path="res://scenes/elements/instruments/floor_tom/floor_tom.tscn" id="9_o15ru"]
+[ext_resource type="PackedScene" uid="uid://cekuqasfi73iu" path="res://scenes/elements/instruments/kick/kick.tscn" id="10_e5qv7"]
+[ext_resource type="PackedScene" uid="uid://xooru71ir1sq" path="res://scenes/elements/instruments/hihat/hihat.tscn" id="11_l4ngq"]
+[ext_resource type="PackedScene" uid="uid://pqcfs6atvtgf" path="res://scenes/elements/instruments/high_tom/high_tom.tscn" id="12_3xwvf"]
+[ext_resource type="PackedScene" uid="uid://dt1kyjj4nqnd8" path="res://scenes/elements/instruments/crash/crash.tscn" id="12_47qgx"]
+[ext_resource type="AudioStream" uid="uid://cqtbfhm388kj7" path="res://scenes/level/Level/Lesson_1.mp3" id="12_drlff"]
+[ext_resource type="Shader" uid="uid://d13tdyarf7atq" path="res://scenes/level/Level/hit_shader.tres" id="14_ryp48"]
+
+[sub_resource type="Curve3D" id="Curve3D_63mc7"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v1hy4"]
+size = Vector2(0.05, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rpn6g"]
+size = Vector2(0.55, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yax75"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ubplq"]
+size = Vector2(0.605, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_soihb"]
+shading_mode = 0
+albedo_color = Color(0.00392157, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_j8ffr"]
+resource_name = "AnimationHit"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Highway/Non_Functional/HitZoneHihat/MeshInstance3D2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.28),
+"transitions": PackedFloat32Array(1, 2.14355, 3.13834),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.11, 1, 1.26), Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Highway/Non_Functional/HitZoneHihat/MeshInstance3D2:surface_material_override/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.04, 0.28),
+"transitions": PackedFloat32Array(1, 2.14355, 3.13834),
+"update": 0,
+"values": [Color(0.00392157, 0, 0, 1), Color(1, 0.258824, 0.2, 1), Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationHit/HitLabel:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.13, 0.28),
+"transitions": PackedFloat32Array(1, 0.366021, 1, 3.36358),
+"update": 0,
+"values": [1.0, 0.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_0giey"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Highway/Non_Functional/HitZoneHihat/MeshInstance3D2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Highway/Non_Functional/HitZoneHihat/MeshInstance3D2:surface_material_override/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.00392157, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationHit/HitLabel:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pr5fw"]
+_data = {
+"AnimationHit": SubResource("Animation_j8ffr"),
+"RESET": SubResource("Animation_0giey")
+}
+
+[sub_resource type="Animation" id="Animation_q4o87"]
+resource_name = "AnimationStart"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Highway/PathCrash/MeshInstance3D:surface_material_override/0:distance_fade_max_distance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.450625, 0.450625),
+"update": 0,
+"values": [150.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_l81gk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Highway/PathCrash/MeshInstance3D:surface_material_override/0:distance_fade_max_distance")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [150.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_adohn"]
+_data = {
+"AnimationStart": SubResource("Animation_q4o87"),
+"RESET": SubResource("Animation_l81gk")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hcnai"]
+render_priority = 0
+shader = ExtResource("14_ryp48")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h7d6d"]
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="QuadMesh" id="QuadMesh_e5wif"]
+
+[node name="LevelAbgabe" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.920505, 0.390731, 0, -0.390731, 0.920505, 0, 2.317, 2.487)
+
+[node name="MidiPlayer" parent="." instance=ExtResource("2_h7be3")]
+file = "res://scenes/level/Level/Groove_1.mid"
+loop = true
+
+[node name="Scoring" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="Scoring"]
+layout_mode = 0
+offset_right = 206.0
+offset_bottom = 115.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mxfs0")
+text = "Text"
+
+[node name="Conductor" type="Node2D" parent="."]
+script = ExtResource("3_7cs55")
+
+[node name="FPS" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Text"
+
+[node name="Highway" type="Node3D" parent="."]
+
+[node name="PathFloor" type="Path3D" parent="Highway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+curve = SubResource("Curve3D_63mc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Highway/PathFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+mesh = SubResource("PlaneMesh_v1hy4")
+surface_material_override/0 = ExtResource("1_3i45h")
+
+[node name="PathSnare" type="Path3D" parent="Highway"]
+curve = SubResource("Curve3D_63mc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Highway/PathSnare"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+visibility_range_fade_mode = 1
+mesh = SubResource("PlaneMesh_v1hy4")
+surface_material_override/0 = ExtResource("1_3i45h")
+
+[node name="PathHat" type="Path3D" parent="Highway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+curve = SubResource("Curve3D_63mc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Highway/PathHat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+mesh = SubResource("PlaneMesh_v1hy4")
+surface_material_override/0 = ExtResource("1_3i45h")
+
+[node name="PathHatPedal" type="Path3D" parent="Highway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+curve = SubResource("Curve3D_63mc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Highway/PathHatPedal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+mesh = SubResource("PlaneMesh_v1hy4")
+surface_material_override/0 = ExtResource("1_3i45h")
+
+[node name="PathKick" type="Path3D" parent="Highway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+curve = SubResource("Curve3D_63mc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Highway/PathKick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+mesh = SubResource("PlaneMesh_v1hy4")
+surface_material_override/0 = ExtResource("1_3i45h")
+
+[node name="PathRide" type="Path3D" parent="Highway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 0)
+curve = SubResource("Curve3D_63mc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Highway/PathRide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+transparency = 0.8
+mesh = SubResource("PlaneMesh_v1hy4")
+surface_material_override/0 = ExtResource("1_3i45h")
+
+[node name="PathMidTom" type="Path3D" parent="Highway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 2, 0)
+curve = SubResource("Curve3D_63mc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Highway/PathMidTom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+transparency = 0.8
+mesh = SubResource("PlaneMesh_v1hy4")
+surface_material_override/0 = ExtResource("1_3i45h")
+
+[node name="PathHighTom" type="Path3D" parent="Highway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 0)
+curve = SubResource("Curve3D_63mc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Highway/PathHighTom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+transparency = 0.8
+mesh = SubResource("PlaneMesh_v1hy4")
+surface_material_override/0 = ExtResource("1_3i45h")
+
+[node name="PathCrash" type="Path3D" parent="Highway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, 0)
+curve = SubResource("Curve3D_63mc7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Highway/PathCrash"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+transparency = 0.8
+mesh = SubResource("PlaneMesh_v1hy4")
+surface_material_override/0 = ExtResource("1_3i45h")
+
+[node name="Non_Functional" type="Node3D" parent="Highway"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+
+[node name="HitZoneFloor" type="MeshInstance3D" parent="Highway/Non_Functional"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+mesh = SubResource("PlaneMesh_rpn6g")
+skeleton = NodePath("../HitZoneSnare")
+surface_material_override/0 = SubResource("StandardMaterial3D_yax75")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Highway/Non_Functional/HitZoneFloor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00953585, -0.00622883)
+mesh = SubResource("PlaneMesh_ubplq")
+surface_material_override/0 = SubResource("StandardMaterial3D_soihb")
+
+[node name="HitZoneSnare" type="MeshInstance3D" parent="Highway/Non_Functional"]
+mesh = SubResource("PlaneMesh_rpn6g")
+surface_material_override/0 = SubResource("StandardMaterial3D_yax75")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Highway/Non_Functional/HitZoneSnare"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00953585, -0.00622883)
+mesh = SubResource("PlaneMesh_ubplq")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_soihb")
+
+[node name="HitZoneHihat" type="MeshInstance3D" parent="Highway/Non_Functional"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+mesh = SubResource("PlaneMesh_rpn6g")
+skeleton = NodePath("../HitZoneSnare")
+surface_material_override/0 = SubResource("StandardMaterial3D_yax75")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Highway/Non_Functional/HitZoneHihat"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00953585, -0.00622883)
+mesh = SubResource("PlaneMesh_ubplq")
+surface_material_override/0 = SubResource("StandardMaterial3D_soihb")
+
+[node name="Instruments" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Snare" parent="Instruments" instance=ExtResource("6_otvak")]
+
+[node name="Ride" parent="Instruments" instance=ExtResource("7_cm3p3")]
+
+[node name="MidTom" parent="Instruments" instance=ExtResource("8_7u1at")]
+
+[node name="LowTom" parent="Instruments" instance=ExtResource("9_o15ru")]
+
+[node name="Kick" parent="Instruments" instance=ExtResource("10_e5qv7")]
+
+[node name="Hihat" parent="Instruments" instance=ExtResource("11_l4ngq")]
+
+[node name="Crash" parent="Instruments" instance=ExtResource("12_47qgx")]
+
+[node name="HighTom" parent="Instruments" instance=ExtResource("12_3xwvf")]
+layout_mode = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_drlff")
+
+[node name="Labels" type="Node3D" parent="."]
+
+[node name="AnimationHit" type="AnimationPlayer" parent="Labels"]
+libraries = {
+"": SubResource("AnimationLibrary_pr5fw")
+}
+movie_quit_on_finish = true
+
+[node name="HitLabel" type="Label3D" parent="Labels/AnimationHit"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -1, 0, 0.308)
+modulate = Color(1, 0, 0, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "HIT"
+font = ExtResource("4_mxfs0")
+
+[node name="AnimationStart" type="AnimationPlayer" parent="Labels"]
+libraries = {
+"": SubResource("AnimationLibrary_adohn")
+}
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_hcnai")
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_h7d6d")
+draw_pass_1 = SubResource("QuadMesh_e5wif")
+
+[connection signal="midi_event" from="MidiPlayer" to="Conductor" method="_on_midi_player_midi_event"]

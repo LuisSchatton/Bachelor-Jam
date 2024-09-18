@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cynr1yf4vsnhn"]
+
+[ext_resource type="PackedScene" uid="uid://drhlcky4lqxp2" path="res://scenes/level/prototyping/level_prototyp_4/judgement_line.tscn" id="2_go71f"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_4/conductor_prtp_4.gd" id="2_gqfqc"]
+
+[node name="Ui" type="Node2D"]
+
+[node name="Conductor" type="Node2D" parent="."]
+script = ExtResource("2_gqfqc")
+
+[node name="JudgementLine" parent="." instance=ExtResource("2_go71f")]
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

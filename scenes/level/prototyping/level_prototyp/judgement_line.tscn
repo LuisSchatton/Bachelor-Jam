@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ystksgrlui5"]
+
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp/judgement_line.gd" id="1_afa8v"]
+[ext_resource type="PackedScene" uid="uid://coc8xvxoovcjm" path="res://scenes/elements/instruments/snare/snare.tscn" id="2_ahgdk"]
+
+[node name="JudgementLine" type="Node2D"]
+script = ExtResource("1_afa8v")
+
+[node name="Snare" parent="." instance=ExtResource("2_ahgdk")]
+
+[connection signal="snare_hit" from="Snare" to="." method="_on_snare_snare_hit"]

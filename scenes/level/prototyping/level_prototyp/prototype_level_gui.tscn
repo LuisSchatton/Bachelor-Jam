@@ -1,0 +1,144 @@
+[gd_scene load_steps=12 format=3 uid="uid://cifqdmk8sj7g"]
+
+[ext_resource type="PackedScene" uid="uid://coc8xvxoovcjm" path="res://scenes/elements/instruments/snare/snare.tscn" id="1_aijx4"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp/note.gd" id="2_iaacx"]
+[ext_resource type="PackedScene" uid="uid://go2rg4ulbwmi" path="res://scenes/level/prototyping/level_prototyp/drum.tscn" id="2_jgcv4"]
+[ext_resource type="PackedScene" uid="uid://d1ystksgrlui5" path="res://scenes/level/prototyping/level_prototyp/judgement_line.tscn" id="3_flere"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp/ScoreLabel.gd" id="4_m55q0"]
+[ext_resource type="FontFile" uid="uid://cn7qucpbehlg8" path="res://graphics/TT Hoves Pro Trial Medium.ttf" id="4_xqsu3"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp/AccuracyLabel.gd" id="5_yf3xx"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp/level_clock.gd" id="6_n1d7j"]
+[ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="9_as3tp"]
+[ext_resource type="AudioStream" uid="uid://j0nhcnlv2gh7" path="res://scenes/level/prototyping/level_prototyp/Reggae_One_Drop.mp3" id="10_vt2l0"]
+
+[sub_resource type="GDScript" id="GDScript_7vxh7"]
+script/source = "extends Control
+
+var parser = XMLParser.new()
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	
+	parser.open(\"res://scenes/level/prototyping/level_prototyp/Reggae_One_Drop_2.xml\")
+	while parser.read() != ERR_FILE_EOF:
+		if parser.get_node_type() == XMLParser.NODE_ELEMENT:
+			var node_name = parser.get_node_name()
+			var attributes_dict = {}
+			for idx in range(parser.get_attribute_count()):
+				attributes_dict[parser.get_attribute_name(idx)] = parser.get_attribute_value(idx)
+			if node_name == str(\"measure\"):
+				print(\"The \", node_name, \" element has the following attributes: \", attributes_dict)
+			elif node_name == str(\"note\"):
+				print(\"The \", node_name, \" element has the following attributes: \", attributes_dict)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Snare" parent="." instance=ExtResource("1_aijx4")]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Note" type="Node2D" parent="HBoxContainer2"]
+script = ExtResource("2_iaacx")
+
+[node name="Drum" parent="HBoxContainer2" instance=ExtResource("2_jgcv4")]
+animation_speed = 1000.0
+
+[node name="DrumContainer" type="Node2D" parent="HBoxContainer2"]
+
+[node name="JudgementLine" parent="HBoxContainer2" instance=ExtResource("3_flere")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.5
+offset_right = 36.5
+offset_bottom = 35.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xqsu3")
+theme_override_font_sizes/font_size = 60
+text = "Score:"
+script = ExtResource("4_m55q0")
+
+[node name="AccuracyLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xqsu3")
+theme_override_font_sizes/font_size = 30
+text = "⌀ Accuracy:"
+script = ExtResource("5_yf3xx")
+
+[node name="LevelClock" type="Node2D" parent="."]
+script = ExtResource("6_n1d7j")
+
+[node name="LevelTimer" type="Timer" parent="LevelClock"]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = SubResource("GDScript_7vxh7")
+
+[node name="MidiPlayer" parent="." instance=ExtResource("9_as3tp")]
+file = "res://scenes/level/prototyping/level_prototyp/Reggae_One_Drop_2.mid"
+playing = true
+volume_db = 0.0
+loop = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_vt2l0")
+
+[connection signal="snare_hit" from="Snare" to="HBoxContainer2/Drum" method="_on_snare_snare_hit"]
+[connection signal="snare_hit" from="Snare" to="HBoxContainer2/JudgementLine" method="_on_snare_snare_hit"]
+[connection signal="circle_reached" from="HBoxContainer2/Drum" to="Snare" method="_on_drum_circle_reached"]
+[connection signal="circle_reached" from="HBoxContainer2/Drum" to="HBoxContainer2/JudgementLine" method="_on_drum_circle_reached"]
+[connection signal="average_accuracy_changed" from="HBoxContainer2/JudgementLine" to="MarginContainer/VBoxContainer/AccuracyLabel" method="_on_judgement_line_average_accuracy_changed"]
+[connection signal="points_scored" from="HBoxContainer2/JudgementLine" to="MarginContainer/VBoxContainer/ScoreLabel" method="_on_judgement_line_points_scored"]
+[connection signal="timeout" from="LevelClock/LevelTimer" to="LevelClock" method="_on_level_timer_timeout"]
+[connection signal="midi_event" from="MidiPlayer" to="HBoxContainer2/Note" method="_on_midi_player_midi_event"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl1um2h2dbt2o"]
+
+[ext_resource type="Texture2D" uid="uid://bjjmlsl0ux6by" path="res://scenes/level/prototyping/level_prototyp_7/Kick_Sprite.png" id="1_gudii"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_7/note_kick_2.gd" id="2_1p3fi"]
+
+[node name="Note_Kick" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gudii")
+script = ExtResource("2_1p3fi")

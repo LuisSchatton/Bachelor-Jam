@@ -1,0 +1,421 @@
+[gd_scene load_steps=15 format=3 uid="uid://cdm8aqqv4dcn5"]
+
+[ext_resource type="Script" path="res://scripts/note.gd" id="1_l2lbd"]
+
+[sub_resource type="Animation" id="Animation_y1rxu"]
+resource_name = "Early_Animation"
+length = 0.2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.485, 0.485, 0.485), Vector3(0.625, 0.625, 0.625)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material_override:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.909804, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0576984, 0.0747365, -0.24), Vector3(0.013, 0, -0.31)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../MeshInstance3D:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_5g6b5"]
+resource_name = "Hit_Animation"
+length = 0.229
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 2.07054),
+"update": 0,
+"values": [Vector3(0.0576984, 0.0747365, -0.24), Vector3(0.013, 0, -0.312)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material_override:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 2.07054),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 2.07054),
+"update": 0,
+"values": [Vector3(0.485, 0.485, 0.485), Vector3(0.625, 0.625, 0.625)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../MeshInstance3D:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_8ba72"]
+resource_name = "Hit_Animation_Note"
+length = 0.444
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.105112, 0.0769465),
+"update": 0,
+"values": [Vector3(0.058, 0.1, -0.24), Vector3(0.058, 0, -0.24)]
+}
+
+[sub_resource type="Animation" id="Animation_6uv05"]
+resource_name = "Late_Animation"
+length = 0.1605
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0576984, 0.0747365, -0.24), Vector3(0.013, 0, -0.31)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1605),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.485, 0.485, 0.485), Vector3(0.625, 0.625, 0.625)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:material_override:emission")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../MeshInstance3D:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_i81p4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0576984, 0.0747365, -0.24)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material_override:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.485, 0.485, 0.485)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../MeshInstance3D:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../MeshInstance3D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.61595, 0.61595, 0.61595)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../MeshInstance3D:material_override:emission_energy_multiplier")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_aphqd"]
+resource_name = "Hit_Animation_Loud"
+length = 0.229
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 2.07054),
+"update": 0,
+"values": [Vector3(0.0576984, 0.0747365, -0.24), Vector3(0.013, 0, -0.312)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material_override:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 2.07054),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 2.07054),
+"update": 0,
+"values": [Vector3(0.485, 0.485, 0.485), Vector3(0.625, 0.625, 0.625)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../MeshInstance3D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.61595, 0.61595, 0.61595), Vector3(0.731, 0.731, 0.731)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../MeshInstance3D:material_override:emission_energy_multiplier")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 16.0]
+}
+
+[sub_resource type="Animation" id="Animation_nxtmd"]
+resource_name = "Hit_Animation_Quiet"
+length = 0.229
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 2.07054),
+"update": 0,
+"values": [Vector3(0.0576984, 0.0747365, -0.24), Vector3(0.104, 0, -0.156)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material_override:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 2.07054),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.16),
+"transitions": PackedFloat32Array(1, 2.07054),
+"update": 0,
+"values": [Vector3(0.485, 0.485, 0.485), Vector3(0.3, 0.3, 0.625)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ft3pw"]
+_data = {
+"Early_Animation": SubResource("Animation_y1rxu"),
+"Hit_Animation": SubResource("Animation_5g6b5"),
+"Hit_Animation_Loud": SubResource("Animation_aphqd"),
+"Hit_Animation_Note": SubResource("Animation_8ba72"),
+"Hit_Animation_Quiet": SubResource("Animation_nxtmd"),
+"Late_Animation": SubResource("Animation_6uv05"),
+"RESET": SubResource("Animation_i81p4")
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v2nsy"]
+load_path = "res://.godot/imported/Note_Einzeln.png-a25b67d4e4883bbc2a32bd7113beaae6.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ehtfc"]
+load_path = "res://.godot/imported/Note_Einzeln.png-a25b67d4e4883bbc2a32bd7113beaae6.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7i1h8"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("CompressedTexture2D_v2nsy")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_texture = SubResource("CompressedTexture2D_ehtfc")
+grow_amount = -0.457
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kxh2t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1srt"]
+resource_local_to_scene = true
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[node name="Note" type="Node3D"]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+script = ExtResource("1_l2lbd")
+
+[node name="HitAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CSGPolygon3D")
+libraries = {
+"": SubResource("AnimationLibrary_ft3pw")
+}
+speed_scale = 1.488
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.61595, 9.30058e-08, 9.30059e-08, 9.30058e-08, 0.61595, -5.15143e-14, -9.30059e-08, -3.74708e-14, -0.61595, 0.193261, 0.0032131, 0.000775397)
+material_override = SubResource("StandardMaterial3D_7i1h8")
+mesh = SubResource("PlaneMesh_kxh2t")
+skeleton = NodePath("../CSGPolygon3D")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(0.485, 0, 0, 0, -2.12e-08, -0.485, 0, 0.485, -2.12e-08, 0.0576984, 0.0747365, -0.24)
+material_override = SubResource("StandardMaterial3D_m1srt")
+polygon = PackedVector2Array(0, 0, 0, 1, 0.9, 0.5)
+depth = 0.01
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1.00662, -0.569768, 0.838389, 0, 1.18154, 0.802976, -1.01367, -0.565805, 0.832556, 2.51, 2.473, 2.301)
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
+[connection signal="animation_finished" from="HitAnimation" to="." method="_on_hit_animation_animation_finished"]

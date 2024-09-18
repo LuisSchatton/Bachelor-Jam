@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cl2nm86acsfjj"]
+
+[ext_resource type="PackedScene" uid="uid://b5sk0608jdlkb" path="res://scenes/level/prototyping/level_prototyp_3/Drum.gltf" id="1_rh2bk"]
+[ext_resource type="Material" uid="uid://dvtvfft0c0dpq" path="res://scenes/level/prototyping/level_prototyp_3/materials/cymbal.tres" id="2_v0l11"]
+[ext_resource type="Material" uid="uid://cqoo42m276xqr" path="res://scenes/level/prototyping/level_prototyp_3/materials/metal.tres" id="3_0s1wl"]
+[ext_resource type="Material" uid="uid://cfhwbnnfrhsiy" path="res://scenes/level/prototyping/level_prototyp_3/materials/drum.tres" id="4_8nkx5"]
+[ext_resource type="Material" uid="uid://cyu86io478mkv" path="res://scenes/level/prototyping/level_prototyp_3/materials/fell.tres" id="5_i1j67"]
+
+[node name="Drum" instance=ExtResource("1_rh2bk")]
+
+[node name="Crash" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_v0l11")
+
+[node name="HihatOben" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_v0l11")
+
+[node name="Ride" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_v0l11")
+
+[node name="HihatOben_001" parent="." index="3"]
+surface_material_override/0 = ExtResource("2_v0l11")
+
+[node name="Cylinder" parent="." index="4"]
+surface_material_override/0 = ExtResource("3_0s1wl")
+surface_material_override/1 = ExtResource("3_0s1wl")
+
+[node name="Bassdrum_Unified" parent="." index="5"]
+surface_material_override/0 = ExtResource("3_0s1wl")
+surface_material_override/1 = ExtResource("4_8nkx5")
+surface_material_override/2 = ExtResource("5_i1j67")
+
+[node name="Floortom_Unified" parent="." index="6"]
+surface_material_override/0 = ExtResource("3_0s1wl")
+surface_material_override/1 = ExtResource("4_8nkx5")
+surface_material_override/2 = ExtResource("5_i1j67")
+
+[node name="Snaredrum_Unified" parent="." index="7"]
+surface_material_override/0 = ExtResource("3_0s1wl")
+surface_material_override/1 = ExtResource("4_8nkx5")
+surface_material_override/2 = ExtResource("5_i1j67")
+
+[node name="Drum_HighTom_001" parent="." index="8"]
+surface_material_override/0 = ExtResource("3_0s1wl")
+surface_material_override/1 = ExtResource("4_8nkx5")
+surface_material_override/2 = ExtResource("5_i1j67")
+
+[node name="Midtom_Unified" parent="." index="9"]
+surface_material_override/0 = ExtResource("3_0s1wl")
+surface_material_override/1 = ExtResource("4_8nkx5")
+surface_material_override/2 = ExtResource("5_i1j67")

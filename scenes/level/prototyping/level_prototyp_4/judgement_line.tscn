@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://drhlcky4lqxp2"]
+
+[ext_resource type="Texture2D" uid="uid://bw383dbfdvi7v" path="res://graphics/depricated/judgementLine_Ring.png" id="1_us34d"]
+
+[node name="JudgementLine" type="Sprite2D"]
+texture = ExtResource("1_us34d")

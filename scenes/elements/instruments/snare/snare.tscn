@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://coc8xvxoovcjm"]
+
+[ext_resource type="Script" path="res://scenes/elements/instruments/snare/snare.gd" id="1_crugb"]
+[ext_resource type="AudioStream" uid="uid://c7utymko6jxi5" path="res://scenes/elements/instruments/snare/snare_sound.mp3" id="2_0hv5p"]
+
+[node name="Snare" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_crugb")
+stream = ExtResource("2_0hv5p")

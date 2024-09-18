@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxthxo4a4k8xa"]
+
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_7/note_prototyp_7.gd" id="1_5qbmd"]
+[ext_resource type="Texture2D" uid="uid://c6la1gnhmejiq" path="res://graphics/depricated/snare.png" id="2_48tv6"]
+
+[node name="NotePrototyp7" type="Node2D"]
+script = ExtResource("1_5qbmd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_48tv6")

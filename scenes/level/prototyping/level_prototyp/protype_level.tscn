@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://mtmui6ex4rvl"]
+
+[ext_resource type="PackedScene" uid="uid://coc8xvxoovcjm" path="res://scenes/elements/instruments/snare/snare.tscn" id="1_kp61k"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp/Label.gd" id="2_k6i7q"]
+
+[node name="ProtypeLevel" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+offset_left = -30.5
+offset_top = -27.5
+offset_right = 30.5
+offset_bottom = 27.5
+
+[node name="Label" type="Label" parent="Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 40
+text = "Set"
+script = ExtResource("2_k6i7q")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Snare" parent="." instance=ExtResource("1_kp61k")]
+
+[connection signal="snare_hit" from="Snare" to="Control/HBoxContainer/Label" method="_on_snare_snare_hit"]

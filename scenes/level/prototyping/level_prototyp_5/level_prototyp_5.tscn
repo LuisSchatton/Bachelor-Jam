@@ -1,0 +1,239 @@
+[gd_scene load_steps=16 format=3 uid="uid://fxgio2lnx443"]
+
+[ext_resource type="ArrayMesh" uid="uid://da8uo2otyl2q6" path="res://scenes/level/prototyping/level_prototyp_5/Drum.obj" id="1_b82fd"]
+[ext_resource type="Material" uid="uid://cwle1hmlf58qe" path="res://scenes/level/prototyping/level_prototyp_5/drum_tex.tres" id="2_trni0"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_5/conductor_prtp_5.gd" id="4_oh35a"]
+[ext_resource type="PackedScene" uid="uid://coc8xvxoovcjm" path="res://scenes/elements/instruments/snare/snare.tscn" id="5_nneyb"]
+[ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="6_iolgv"]
+[ext_resource type="PlaneMesh" uid="uid://xdk1lpw5aacl" path="res://scenes/level/prototyping/level_prototyp_5/hit_tex.tres" id="6_rbdnc"]
+[ext_resource type="Material" uid="uid://2bj35s5mymsf" path="res://scenes/level/prototyping/level_prototyp_5/hit_grey_tex.tres" id="7_bgdfo"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_5/Metronome2.gd" id="9_c6mli"]
+
+[sub_resource type="Curve3D" id="Curve3D_sjn3g"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.027566, -2.48163, 0, 0, -0.8, 0, 0, 0.8, -0.683628, 0.00435638, -0.912846, 0, 0, 0, 0, 0, 0, 0, 0.027566, 0.518372, 0, 0, 0, 0, 0, 0, 0.221505, -7.06911e-05, 0.717154),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_ffke1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0.027606, -0.00523782, 0, 0, -0.7, 0, 0, 0.7, 0.622286, 3.21865e-05, 1.5769, 0, 0, 0, 0, 0, 0, 0, 0.027606, 2.99476, 0, 0, 0, 0, 0, 0, -0.2, 0.027606, 3.19476),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Animation" id="Animation_lvlta"]
+resource_name = "Animation_Hit"
+length = 0.2
+step = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/Hit:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.815, 0.815, 0.815), Vector3(1, 1, 1), Vector3(0.51, 0.51, 0.51)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation/Hit:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_42meq"]
+resource_name = "Animation_Hit_Grey"
+length = 0.2
+step = 0.001
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/HitGrey")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation/HitGrey:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.815, 0.815, 0.815), Vector3(1, 1, 1), Vector3(0.51, 0.51, 0.51)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animation/HitGrey:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_pld4b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Animation/HitGrey:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Animation/HitGrey:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Animation/Hit:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Animation/Hit:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qegvy"]
+_data = {
+"Animation_Hit": SubResource("Animation_lvlta"),
+"Animation_Hit_Grey": SubResource("Animation_42meq"),
+"RESET": SubResource("Animation_pld4b")
+}
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_th4oi"]
+material = ExtResource("7_bgdfo")
+size = Vector2(0.735, 0.56)
+
+[node name="LevelPrototyp5" type="Node3D"]
+
+[node name="MidiPlayer" parent="." instance=ExtResource("6_iolgv")]
+file = "res://scenes/level/prototyping/level_prototyp_5/single_stroke_roll_2.mid"
+loop = true
+
+[node name="Drum" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0166763, 0, -0.526973)
+material_override = ExtResource("2_trni0")
+mesh = ExtResource("1_b82fd")
+
+[node name="Drum2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.52525)
+material_override = ExtResource("2_trni0")
+mesh = ExtResource("1_b82fd")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.905931, 0.423424, 0, -0.423424, 0.905931, 0, 1.31893, 0.641858)
+
+[node name="PathLinks" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.672434, -0.518372)
+curve = SubResource("Curve3D_sjn3g")
+
+[node name="PathRechts" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.672394, -2.99476)
+curve = SubResource("Curve3D_ffke1")
+
+[node name="Conductor" type="Node2D" parent="."]
+script = ExtResource("4_oh35a")
+map_bpm = 80.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.371621, -0.426782, -0.824473, 0.354647, -0.885981, 0.298768, -0.857976, -0.181368, 0.480606, 2.40859, 4.18877, 1.53057)
+light_energy = 16.0
+light_indirect_energy = 1.06
+sky_mode = 1
+
+[node name="Snare" parent="." instance=ExtResource("5_nneyb")]
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qegvy")
+}
+
+[node name="HitGrey" type="MeshInstance3D" parent="Animation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.661, 0)
+transparency = 1.0
+mesh = SubResource("PlaneMesh_th4oi")
+skeleton = NodePath("../..")
+
+[node name="Hit" type="MeshInstance3D" parent="Animation"]
+transform = Transform3D(0.999985, 0, -0.00551526, 0, 1, 0, 0.00551526, 0, 0.999985, 0, 0.66, 0)
+mesh = ExtResource("6_rbdnc")
+skeleton = NodePath("../..")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 450
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+
+[node name="Metronome" type="AudioStreamPlayer" parent="."]
+
+[node name="Metronome2" type="Timer" parent="."]
+one_shot = true
+script = ExtResource("9_c6mli")
+
+[node name="FPS" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "FPS:"
+
+[connection signal="midi_event" from="MidiPlayer" to="Conductor" method="_on_midi_player_midi_event"]
+[connection signal="snare_hit" from="Snare" to="Conductor" method="_on_snare_snare_hit"]
+[connection signal="timeout" from="Metronome2" to="Conductor" method="_on_metronome_2_timeout"]

@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=3 uid="uid://fge0gn3gsbr"]
+
+[ext_resource type="Texture2D" uid="uid://bdmxs8vn6sbv0" path="res://scenes/level/prototyping/level_prototyp_7/Group 566.png" id="1_mr4en"]
+[ext_resource type="Texture2D" uid="uid://c5f21e0v611xh" path="res://scenes/level/prototyping/level_prototyp_6/Kick.png" id="2_535rs"]
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_6/conductor_prtp_6.gd" id="3_jsefr"]
+
+[sub_resource type="Curve2D" id="Curve2D_xix6j"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 964, 479, 0, 0, 0, 0, 994.77, 489.81, 0, 0, 0, 0, 1307, 617)
+}
+point_count = 3
+
+[sub_resource type="Curve2D" id="Curve2D_rjln8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 940, 494, 0, 0, 0, 0, 940, 836)
+}
+point_count = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_j4edr"]
+
+[node name="LevelPrototyp9Gui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="GridContainer"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_mr4en")
+
+[node name="KickNote" type="Sprite2D" parent="GridContainer"]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_535rs")
+
+[node name="PathHighTom" type="Path2D" parent="."]
+position = Vector2(1256, 1474)
+rotation = -2.33874
+curve = SubResource("Curve2D_xix6j")
+
+[node name="PathMidTom" type="Path2D" parent="."]
+position = Vector2(470, 1412)
+rotation = -1.5708
+curve = SubResource("Curve2D_xix6j")
+
+[node name="PathFloor" type="Path2D" parent="."]
+position = Vector2(-62, 782)
+rotation = -0.738126
+scale = Vector2(1.01258, 0.944738)
+curve = SubResource("Curve2D_xix6j")
+
+[node name="PathCrash" type="Path2D" parent="."]
+position = Vector2(1882, 942)
+rotation = 3.14159
+curve = SubResource("Curve2D_xix6j")
+
+[node name="PathHat" type="Path2D" parent="."]
+position = Vector2(1942, 157)
+rotation = 5.517
+scale = Vector2(-1, -1)
+curve = SubResource("Curve2D_xix6j")
+
+[node name="PathRide" type="Path2D" parent="."]
+curve = SubResource("Curve2D_xix6j")
+
+[node name="PathSnare" type="Path2D" parent="."]
+curve = SubResource("Curve2D_rjln8")
+
+[node name="Note" type="PathFollow2D" parent="PathSnare"]
+position = Vector2(940, 836)
+rotation = 1.5708
+progress = 342.0
+rotates = false
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="PathSnare/Note"]
+position = Vector2(1.25002, 0)
+scale = Vector2(9.75004, 85.375)
+mesh = SubResource("QuadMesh_j4edr")
+
+[node name="Conductor" type="Node2D" parent="."]
+script = ExtResource("3_jsefr")

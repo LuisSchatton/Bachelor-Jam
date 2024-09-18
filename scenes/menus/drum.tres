@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://hns56pi38n1j"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.436
+alpha_antialiasing_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+disable_ambient_light = true
+metallic_specular = 0.0
+roughness = 0.0
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+rim_tint = 0.16

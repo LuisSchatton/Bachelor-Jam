@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://hwbbjr7ndce4"]
+
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_5/note.gd" id="1_1c28u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgqsw"]
+shading_mode = 0
+diffuse_mode = 3
+albedo_color = Color(0.203922, 0.447059, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1jr1f"]
+top_radius = 0.0
+bottom_radius = 0.1
+height = 0.001
+
+[node name="PathFollowRechts" type="PathFollow3D"]
+transform = Transform3D(-0.931861, -6.90809e-06, -0.362808, -2.27373e-13, 1, -1.90405e-05, 0.362808, -1.77432e-05, -0.931861, 0.00898826, 0, 0.00166702)
+script = ExtResource("1_1c28u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_pgqsw")
+mesh = SubResource("CylinderMesh_1jr1f")

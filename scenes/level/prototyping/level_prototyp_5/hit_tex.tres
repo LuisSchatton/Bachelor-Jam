@@ -1,0 +1,15 @@
+[gd_resource type="PlaneMesh" load_steps=3 format=3 uid="uid://xdk1lpw5aacl"]
+
+[ext_resource type="Texture2D" uid="uid://b4i4g45nx1ukg" path="res://scenes/level/prototyping/level_prototyp_5/Vector 64.png" id="1_1qrq8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntjki"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_1qrq8")
+
+[resource]
+material = SubResource("StandardMaterial3D_ntjki")
+size = Vector2(0.735, 0.56)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://go2rg4ulbwmi"]
+
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp/Drum.gd" id="1_p5ct5"]
+[ext_resource type="PackedScene" uid="uid://coc8xvxoovcjm" path="res://scenes/elements/instruments/snare/snare.tscn" id="2_k8vgc"]
+
+[node name="Drum" type="Node2D"]
+script = ExtResource("1_p5ct5")
+
+[node name="Snare" parent="." instance=ExtResource("2_k8vgc")]
+
+[connection signal="snare_hit" from="Snare" to="." method="_on_snare_snare_hit"]

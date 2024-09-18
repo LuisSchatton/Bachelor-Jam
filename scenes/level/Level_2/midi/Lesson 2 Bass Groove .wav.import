@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dhf2j78n361xw"
+path="res://.godot/imported/Lesson 2 Bass Groove .wav-0a5f5ce16241e895ca1ce4bfe5a18e1f.sample"
+
+[deps]
+
+source_file="res://scenes/level/Level_2/midi/Lesson 2 Bass Groove .wav"
+dest_files=["res://.godot/imported/Lesson 2 Bass Groove .wav-0a5f5ce16241e895ca1ce4bfe5a18e1f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

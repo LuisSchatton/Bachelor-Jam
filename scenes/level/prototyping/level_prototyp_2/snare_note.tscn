@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ryrm62qhk8ex"]
+
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_2/snare_note.gd" id="1_sea4l"]
+[ext_resource type="Texture2D" uid="uid://c3rs3cmwropj2" path="res://graphics/depricated/SnareInnen.png" id="2_00gec"]
+[ext_resource type="PackedScene" uid="uid://brtjo7k7skq3r" path="res://scenes/elements/notes/drum_ring/drum_ring.tscn" id="3_shvlc"]
+
+[node name="SnareNote" type="Node2D"]
+script = ExtResource("1_sea4l")
+
+[node name="SnareSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_00gec")
+
+[node name="DrumRing" parent="." instance=ExtResource("3_shvlc")]

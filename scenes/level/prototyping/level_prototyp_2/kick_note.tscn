@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5gm5mr7nin2o"]
+
+[ext_resource type="Script" path="res://scenes/level/prototyping/level_prototyp_2/kick_note.gd" id="1_kod2x"]
+[ext_resource type="Texture2D" uid="uid://dg1362pqobws4" path="res://graphics/depricated/KickInnen.png" id="2_j1mqs"]
+[ext_resource type="PackedScene" uid="uid://brtjo7k7skq3r" path="res://scenes/elements/notes/drum_ring/drum_ring.tscn" id="3_p5goi"]
+
+[node name="KickNote" type="Node2D"]
+script = ExtResource("1_kod2x")
+
+[node name="KickSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_j1mqs")
+
+[node name="DrumRing" parent="." instance=ExtResource("3_p5goi")]

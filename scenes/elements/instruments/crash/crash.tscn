@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt1kyjj4nqnd8"]
+
+[ext_resource type="Script" path="res://scenes/elements/instruments/crash/crash.gd" id="1_j4vvh"]
+[ext_resource type="AudioStream" uid="uid://u77n3jx7ienh" path="res://scenes/elements/instruments/crash/crash_sound.mp3" id="2_in1kt"]
+
+[node name="Crash" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_j4vvh")
+stream = ExtResource("2_in1kt")

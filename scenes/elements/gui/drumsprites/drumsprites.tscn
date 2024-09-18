@@ -1,0 +1,296 @@
+[gd_scene load_steps=20 format=3 uid="uid://2l14anyjjbu0"]
+
+[ext_resource type="Texture2D" uid="uid://d37e2a3c3eyru" path="res://graphics/ui/drum_sprites/Floor_Sprite.png" id="1_00k8d"]
+[ext_resource type="Script" path="res://scenes/elements/gui/drumsprites/drumsprites.gd" id="1_yusoe"]
+[ext_resource type="Texture2D" uid="uid://dg8yx6vw48ca3" path="res://graphics/ui/drum_sprites/Snare_Sprite.png" id="2_lsbwp"]
+[ext_resource type="Texture2D" uid="uid://cnopcc2oygh21" path="res://graphics/ui/drum_sprites/HiHat_Sprite.png" id="3_aoi5g"]
+[ext_resource type="Texture2D" uid="uid://b37s4oxcmpr3n" path="res://graphics/ui/drum_sprites/Kick_Sprite.png" id="4_88ylk"]
+[ext_resource type="Texture2D" uid="uid://ndkehwgeegtr" path="res://graphics/ui/drum_sprites/Crash_Sprite.png" id="5_qfl04"]
+[ext_resource type="Texture2D" uid="uid://dlawk4yplihrv" path="res://graphics/ui/drum_sprites/High_Tom_Sprite.png" id="6_8am8b"]
+[ext_resource type="Texture2D" uid="uid://od6xi375sf5j" path="res://graphics/ui/drum_sprites/Mid_Tom_Sprite.png" id="7_d7w3i"]
+[ext_resource type="Texture2D" uid="uid://uo7gqnippxhh" path="res://graphics/ui/drum_sprites/Ride_Sprite.png" id="8_r5cqt"]
+
+[sub_resource type="Animation" id="Animation_d45r0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FloorSprite:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SnareSprite:transparency")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HihatSprite:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("KickSprite:transparency")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CrashSprite:transparency")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HighTomSprite:transparency")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MidTomSprite:transparency")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Ride Sprite:transparency")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_oyrof"]
+resource_name = "crashsprite_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CrashSprite:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_fn8vi"]
+resource_name = "floorsprite_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FloorSprite:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_42gc5"]
+resource_name = "hightomsprite_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HighTomSprite:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_1gfck"]
+resource_name = "hihatsprite_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HihatSprite:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ybgxs"]
+resource_name = "kicksprite_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("KickSprite:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_vdqvi"]
+resource_name = "midtomsprite_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MidTomSprite:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_4vys3"]
+resource_name = "ridesprite_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Ride Sprite:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_pdas6"]
+resource_name = "snaresprite_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SnareSprite:transparency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vsav5"]
+_data = {
+"RESET": SubResource("Animation_d45r0"),
+"crashsprite_start": SubResource("Animation_oyrof"),
+"floorsprite_start": SubResource("Animation_fn8vi"),
+"hightomsprite_start": SubResource("Animation_42gc5"),
+"hihatsprite_start": SubResource("Animation_1gfck"),
+"kicksprite_start": SubResource("Animation_ybgxs"),
+"midtomsprite_start": SubResource("Animation_vdqvi"),
+"ridesprite_start": SubResource("Animation_4vys3"),
+"snaresprite_start": SubResource("Animation_pdas6")
+}
+
+[node name="Labels" type="Node3D"]
+script = ExtResource("1_yusoe")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55494, 3.28263)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vsav5")
+}
+
+[node name="FloorSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 2, 0, -5)
+transparency = 1.0
+texture = ExtResource("1_00k8d")
+
+[node name="SnareSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0, -5)
+transparency = 1.0
+texture = ExtResource("2_lsbwp")
+
+[node name="HihatSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -2, 0, -5)
+transparency = 1.0
+texture = ExtResource("3_aoi5g")
+
+[node name="KickSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 1, 0.43, -5)
+transparency = 1.0
+texture = ExtResource("4_88ylk")
+
+[node name="CrashSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -3, 2.7, -5)
+transparency = 1.0
+texture = ExtResource("5_qfl04")
+
+[node name="HighTomSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -1, 2.7, -5)
+transparency = 1.0
+texture = ExtResource("6_8am8b")
+
+[node name="MidTomSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 1.11, 2.7, -5)
+transparency = 1.0
+texture = ExtResource("7_d7w3i")
+
+[node name="Ride Sprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 3.2, 2.7, -5)
+transparency = 1.0
+texture = ExtResource("8_r5cqt")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2bj35s5mymsf"]
+
+[ext_resource type="Texture2D" uid="uid://c2p5qlmji0emi" path="res://graphics/vfx/hit_effekt.png" id="1_unppm"]
+
+[resource]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.360784, 0.360784, 0.360784, 1)
+albedo_texture = ExtResource("1_unppm")
+emission = Color(0.360784, 0.360784, 0.360784, 1)

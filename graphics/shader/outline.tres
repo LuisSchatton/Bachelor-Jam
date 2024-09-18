@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bk3003ojba4ac"]
+
+[ext_resource type="Shader" path="res://scenes/level/menus/main_menu.gdshader" id="1_lt17h"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_lt17h")
+shader_parameter/outlineColor = Color(0, 0, 0, 1)
+shader_parameter/depth_threshold = 0.025
+shader_parameter/normal_threshold = 0.562
+shader_parameter/normal_smoothing = 0.0
+shader_parameter/max_thickness = 0.0
+shader_parameter/min_thickness = 1.215
+shader_parameter/max_distance = 73.83
+shader_parameter/min_distance = 2.0
+shader_parameter/grazing_fresnel_power = 5.0
+shader_parameter/grazing_angle_mask_power = 1.0
+shader_parameter/grazing_angle_modulation_factor = 50.0

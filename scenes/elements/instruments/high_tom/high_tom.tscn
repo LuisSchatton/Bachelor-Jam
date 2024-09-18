@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://pqcfs6atvtgf"]
+
+[ext_resource type="Script" path="res://scenes/elements/instruments/high_tom/high_tom.gd" id="1_colj5"]
+[ext_resource type="AudioStream" uid="uid://cyffae6k5ilk7" path="res://scenes/elements/instruments/high_tom/high_tom_sound.mp3" id="2_bs7d0"]
+
+[node name="HighTom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_colj5")
+stream = ExtResource("2_bs7d0")

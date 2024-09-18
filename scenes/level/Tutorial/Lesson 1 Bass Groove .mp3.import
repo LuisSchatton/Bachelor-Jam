@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djiipnd8sfo5s"
+path="res://.godot/imported/Lesson 1 Bass Groove .mp3-d11a7a80951b947bc64da6461adfdea9.mp3str"
+
+[deps]
+
+source_file="res://scenes/level/Tutorial/Lesson 1 Bass Groove .mp3"
+dest_files=["res://.godot/imported/Lesson 1 Bass Groove .mp3-d11a7a80951b947bc64da6461adfdea9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
